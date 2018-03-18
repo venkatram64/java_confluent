@@ -1,19 +1,19 @@
 package com.venkat.avro.producer;
 
 import com.venkat.avro.config.KafkaConfig;
-import com.venkat.avro.entity.v1.Customer;
+import com.venkat.avro.entity.Customer;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
 
-public class CustomerV1Producer {
+public class CustomerV2Producer {
 
     private KafkaProducer<String,Customer> kafkaProducer;
     private String topicName;
 
-    public CustomerV1Producer(){
+    public CustomerV2Producer(){
 
         Properties properties = new Properties();
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.99.100:9092");
@@ -22,12 +22,12 @@ public class CustomerV1Producer {
         properties.put("acks","1");
         properties.put("retries", "10");
         properties.put("schema.registry.url", "http://192.168.99.100:8081");
-        this.topicName = "customer2-avro";
+        this.topicName = "customer0-avro";
 
         kafkaProducer = new KafkaProducer<String, Customer>(properties);
     }
 
-    public CustomerV1Producer(KafkaConfig kafkaConfig){
+    public CustomerV2Producer(KafkaConfig kafkaConfig){
 
         Properties properties = new Properties();
         properties.put("zookeeper.connect", kafkaConfig.getZookeeperUrl());

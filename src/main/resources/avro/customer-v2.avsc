@@ -1,6 +1,6 @@
 {
     "type":"record",
-    "namespace":"com.venkat.avro.entity.v2",
+    "namespace":"com.venkat.avro.entity",
     "name":"Customer",
     "version":"2",
     "doc": "Avro Schema for our Customer",

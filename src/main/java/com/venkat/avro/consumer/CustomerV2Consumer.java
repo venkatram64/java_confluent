@@ -1,6 +1,6 @@
 package com.venkat.avro.consumer;
 
-import com.venkat.avro.entity.v1.Customer;
+import com.venkat.avro.entity.Customer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -11,13 +11,13 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import java.util.Collections;
 import java.util.Properties;
 
-public class CustomerV1Consumer {
+public class CustomerV2Consumer {
 
     private String topicName;
 
     private KafkaConsumer<String, Customer> kafkaConsumer;
 
-    public CustomerV1Consumer(){
+    public CustomerV2Consumer(){
 
         Properties properties = new Properties();
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.99.100:9092");
@@ -29,7 +29,7 @@ public class CustomerV1Consumer {
         properties.put("auto.offset.reset","earliest"); //from beginning
         properties.put("specific.avro.reader", "true");
 
-        this.topicName = "customer2-avro";
+        this.topicName = "customer0-avro";
         this.kafkaConsumer = new KafkaConsumer(properties);
         this.kafkaConsumer.subscribe(Collections.singleton(this.topicName));
         System.out.println("Waiting for data!!!");
