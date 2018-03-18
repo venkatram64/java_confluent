@@ -24,7 +24,7 @@ public class CustomerV2Consumer {
         properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class.getName());
         properties.put("schema.registry.url", "http://192.168.99.100:8081");
-        properties.put("group.id","my-avro-groupid");
+        properties.put("group.id","my-avro-groupid2");
         properties.put("enable.auto.commit", "false");
         properties.put("auto.offset.reset","earliest"); //from beginning
         properties.put("specific.avro.reader", "true");
